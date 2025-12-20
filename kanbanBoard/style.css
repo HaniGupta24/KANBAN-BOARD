@@ -1,0 +1,500 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+}
+
+/* ---------- COLOR SYSTEM ---------- */
+:root{
+    --bg-color:#0f1115;
+    --primary-color:#f1f5f9;
+    --primary-text-color:#cbd5e1;
+
+    --bg-button-color:#1c1f26;
+    --bg-task-color:#232734;
+
+    --accent-blue:#3b82f6;
+    --accent-purple:#8b5cf6;
+    --accent-green:#22c55e;
+    --accent-red:#ef4444;
+
+    --shadow-soft: 0 10px 30px rgba(0,0,0,0.45);
+    --shadow-light: 0 4px 12px rgba(0,0,0,0.25);
+
+    --nav-padding: 15px 30px;
+    --section-padding: 15px 30px;
+
+    --padding-s:6px;
+    --padding-m:12px;
+    --padding-l:16px;
+    --padding-xl:22px;
+    --padding-xxl:32px;
+
+    --border-radius-s:6px;
+    --border-radius-m:12px;
+    --border-radius-l:18px;
+    --border-radius-xl:24px;
+
+    
+    --brand-text: #0f172a;      /* light mode text */
+    --brand-muted: #475569;
+    --brand-accent: #2563eb;
+    --brand-gradient-1: #2563eb;
+    --brand-gradient-2: #7c3aed;
+
+
+/* Dark mode override */
+body.dark {
+    --brand-text: #e5e7eb;
+    --brand-muted: #9ca3af;
+    --brand-accent: #60a5fa;
+    --brand-gradient-1: #3b82f6;
+    --brand-gradient-2: #8b5cf6;
+}
+
+}
+/* ---------- LIGHT MODE ---------- */
+/* ---------- IMPROVED LIGHT MODE ---------- */
+body.light {
+    /* Backgrounds */
+    --bg-color:#f1f5f9;            /* soft slate */
+    --primary-color:#0f172a;       /* deep navy text */
+    --primary-text-color:#475569;  /* muted text */
+
+    /* Surfaces */
+    --bg-button-color:#ffffff;     
+    --bg-task-color:#f8fafc;       
+
+    /* Accents */
+    --accent-blue:#3b82f6;
+    --accent-purple:#8b5cf6;
+    --accent-green:#22c55e;
+    --accent-red:#ef4444;
+
+    /* Shadows (very important for light mode) */
+    --shadow-soft: 0 12px 30px rgba(15,23,42,0.12);
+    --shadow-light: 0 6px 16px rgba(15,23,42,0.10);
+}
+
+
+/* ---------- BODY ---------- */
+body{
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- NAVBAR ---------- */
+/* nav{
+    padding: var(--nav-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-color);
+    z-index: 20;
+} */
+nav {
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: inherit;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+
+nav h1{
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+/* nav button{
+    background: linear-gradient(135deg,
+        var(--accent-blue),
+        var(--accent-purple));
+    border: none;
+    color: white;
+    padding: var(--padding-m) var(--padding-l);
+    cursor: pointer;
+    border-radius: var(--border-radius-m);
+    font-weight: bold;
+    box-shadow: var(--shadow-light);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+} */
+ nav button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+nav button:hover {
+    opacity: 0.9;
+}
+
+
+nav button:hover{
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* ---------- BOARD ---------- */
+.board{
+    padding: var(--section-padding);
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: var(--padding-xxl);
+}
+
+/* ---------- COLUMNS ---------- */
+.task-column{
+    background: linear-gradient(180deg, #1c1f26, #161922);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    padding: var(--padding-m);
+    gap: var(--padding-m);
+    border-radius: var(--border-radius-m);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+}
+
+.task-column.hover-over{
+    border: 2px dashed var(--accent-blue);
+    transform: scale(1.03);
+}
+
+/* ---------- COLUMN HEADING ---------- */
+.heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading span{
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* ---------- TASK CARD ---------- */
+.task{
+    background-color: var(--bg-task-color);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-s);
+    cursor: grab;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+}
+
+.task h2{
+    font-size: 1rem;
+}
+
+.task p{
+    font-size: 0.85rem;
+    color: var(--primary-text-color);
+}
+
+/* ---------- DELETE BUTTON ---------- */
+.task button{
+    align-self: flex-end;
+    background-color: var(--accent-red);
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: var(--padding-s) var(--padding-m);
+    border-radius: var(--border-radius-s);
+    font-size: 0.75rem;
+    transition: opacity 0.2s ease;
+}
+
+.task button:hover{
+    opacity: 0.85;
+}
+
+/* ---------- MODAL ---------- */
+.modal.add-new-task{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.add-new-task.active{
+    display: flex;
+}
+
+/* ---------- MODAL BACKGROUND ---------- */
+.modal.add-new-task .bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+    z-index: 5;
+}
+
+/* ---------- MODAL CENTER ---------- */
+.modal.add-new-task .center{
+    background: rgba(28,31,38,0.9);
+    padding: var(--padding-xxl);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-m);
+    z-index: 10;
+    box-shadow: var(--shadow-soft);
+}
+
+/* ---------- MODAL INPUTS ---------- */
+.modal .center input,
+.modal .center textarea,
+.modal .center select{
+    background-color: var(--bg-task-color);
+    border: none;
+    outline: none;
+    color: var(--primary-text-color);
+    padding: var(--padding-m);
+    border-radius: var(--border-radius-s);
+}
+
+/* ---------- MODAL BUTTON ---------- */
+.modal .center button{
+    background: linear-gradient(135deg,
+        var(--accent-green),
+        var(--accent-blue));
+    border: none;
+    outline: none;
+    color: white;
+    padding: var(--padding-m) var(--padding-l);
+    border-radius: var(--border-radius-m);
+    cursor: pointer;
+    font-weight: bold;
+    width: fit-content;
+    align-self: center;
+}
+body.light .task-column {
+    background: linear-gradient(180deg, #ffffff, #f1f5f9);
+    border: 1px solid #e5e7eb;
+}
+body.light .task {
+    background-color: #ffffff;
+}
+body.light .modal.add-new-task .center {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+}
+/* ---------- PASTEL COLUMN COLORS (LIGHT MODE) ---------- */
+
+/* TODO COLUMN */
+body.light #todo.task-column {
+    background: linear-gradient(180deg, #eff6ff, #dbeafe);
+    border: 1px solid #bfdbfe;
+}
+
+/* PROGRESS COLUMN */
+body.light #progress.task-column {
+    background: linear-gradient(180deg, #fffbeb, #fef3c7);
+    border: 1px solid #fde68a;
+}
+
+/* DONE COLUMN */
+body.light #done.task-column {
+    background: linear-gradient(180deg, #ecfdf5, #d1fae5);
+    border: 1px solid #a7f3d0;
+}
+body.light #todo .heading {
+    color: #1d4ed8;
+}
+
+body.light #progress .heading {
+    color: #b45309;
+}
+
+body.light #done .heading {
+    color: #047857;
+}
+body.light #todo .task {
+    background-color: #ffffff;
+}
+
+body.light #progress .task {
+    background-color: #fffbeb;
+}
+
+body.light #done .task {
+    background-color: #f0fdf4;
+}
+/* ---------- GRADIENT HEADER BARS (LIGHT MODE) ---------- */
+
+body.light .task-column .heading {
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* TODO */
+body.light #todo .heading {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #1e3a8a;
+}
+
+/* PROGRESS */
+body.light #progress .heading {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+}
+
+/* DONE */
+body.light #done .heading {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+}
+body.light .heading .right {
+    background-color: rgba(255,255,255,0.6);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand span {
+    font-weight: 500;
+    opacity: 0.9;
+}
+.left-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+.left-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+.brand-logo .accent {
+    color: #60a5fa;
+    font-size: 1.4rem;
+}
+
+.brand-logo .title {
+    color: #e5e7eb;
+}
+
+.brand-logo .flow {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9ca3af;
+}
+.brand-logo:hover .flow {
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
+}
+.brand-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: inherit;
+}
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+}
+.task h2 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.task p {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Icon */
+.logo-box {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background-color: #2563eb; /* calm blue */
+    color: white;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+/* Text */
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
