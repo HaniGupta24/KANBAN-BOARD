@@ -98,17 +98,6 @@ main{
     flex-direction: column;
 }
 
-/* ---------- NAVBAR ---------- */
-/* nav{
-    padding: var(--nav-padding);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    background-color: var(--bg-color);
-    z-index: 20;
-} */
 nav {
     padding: 14px 32px;
     display: flex;
@@ -486,4 +475,5 @@ body {
     font-weight: 700;
     letter-spacing: 0.5px;
 }
+
 
