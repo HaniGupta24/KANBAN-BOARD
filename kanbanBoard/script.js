@@ -30,7 +30,7 @@ const deleteButton = div.querySelector("button");
     });
         return div;
 }
-
+//Add Function to look sort and easy to understand
 function updateTaskCount() {
     columns.forEach(col => {
         const tasksInCol = col.querySelectorAll(".task");
@@ -43,7 +43,7 @@ function updateTaskCount() {
             desc: t.querySelector("p").innerText
         }));
     });
-
+//Store the data into Local storage
     localStorage.setItem("tasksIncol", JSON.stringify(tasksData));
 }
 
@@ -142,3 +142,4 @@ themeToggle.addEventListener("click", () => {
         themeToggle.innerText = "☀️ Light";
     }
 });
+
