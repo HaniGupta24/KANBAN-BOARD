@@ -11,7 +11,8 @@ html, body{
     'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
     'Helvetica Neue', sans-serif;
 }
-
+/*Why we use root Variable in css  */
+/*Variables defined in :root are available everywhere in your CSS  */
 /* ---------- COLOR SYSTEM ---------- */
 :root{
     --bg-color:#0f1115;
@@ -123,19 +124,6 @@ nav h1{
     letter-spacing: 0.5px;
 }
 
-/* nav button{
-    background: linear-gradient(135deg,
-        var(--accent-blue),
-        var(--accent-purple));
-    border: none;
-    color: white;
-    padding: var(--padding-m) var(--padding-l);
-    cursor: pointer;
-    border-radius: var(--border-radius-m);
-    font-weight: bold;
-    box-shadow: var(--shadow-light);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-} */
  nav button {
     background-color: #2563eb;
     color: white;
@@ -498,3 +486,4 @@ body {
     font-weight: 700;
     letter-spacing: 0.5px;
 }
+
